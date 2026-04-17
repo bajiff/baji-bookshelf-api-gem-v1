@@ -1,21 +1,29 @@
-import http from "http";
+// ! server.js
+import express, { response } from "express";
 
-const requestListener = (request, response) => {
-  response.setHeader("Content-Type","text/html");
-
-  response.statusCode = 200;
-
-  const gacor = "Gacor Kang";
-  
-  response.end(`Berhalan di ${gacor}`)
-};
-
-const server = http.createServer(requestListener,)
-
+const app = express();
 const port = 9000;
-const host = "localhost";
 
+app.use(express.json());
+app.get("/", (request,response) => {
+  response.status(200).json({
+    contentType:"text/html",
+    status:"Sukses Boyyy",
+    message:"Berjalan, Alhamdulillah Express berjalan Kang",
+    nyobaAja:"WKWK ini siapa yang bikin"
+  });
+});
 
-server.listen(port,host, () => {
-  console.log(`Alhamdulilah Berjalan Development Stage di http://${host}:${port}`)
+app.get("/gacor",(request,response) => {
+  response.status(200).json({
+    contentType:"text/html",
+    status:"Jomblo",
+    message:"Berjalan, Alhamdulillah Express berjalan Kang",
+    nyobaAja:"WKWK ini siapa yang bikin",
+    kaloIniApa:"Hehew"
+  });
+})
+
+app.listen(port,() => {
+  console.log(`Alhamdulillah Server Berjalan di http://localhost:${port}`)
 });
