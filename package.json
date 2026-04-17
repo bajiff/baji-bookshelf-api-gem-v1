@@ -5,10 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "node .",
+    "start": "nodemon ."
   },
   "keywords": [],
-  "author": "",
+  "author": "Baji Ajalah",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
